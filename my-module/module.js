@@ -20,5 +20,19 @@ const getUser = (id,callback) => {
 
 const nama = "ini adalah nama";
 
+const siswa = {
+  nama:"Ainur",
+  umur:19,
+  // cetakSiswa : (nama,umur) => {
+  //   return `Halo,Nama saya ${this.nama},Umur Saya ${this.umur} Tahun`
+  // } 
+  // Undefined
+
+  cetakSiswa () {
+    return `Halo,Saya ${this.nama},Saya ${this.umur} Tahun`
+  }
+}
+
 module.exports.getUser = getUser;
 module.exports.nama = nama;
+module.exports.siswa = siswa;
