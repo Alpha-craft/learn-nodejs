@@ -1,11 +1,9 @@
 // import { express } from "express";
 import express from 'express'
-
+import testRoute from './routes/test.js'
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('endlo')
-});
+app.use(testRoute);
 
 app.listen(3000, () => {
   console.log(`Server started on port`);
