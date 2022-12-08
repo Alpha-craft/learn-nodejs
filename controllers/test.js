@@ -13,3 +13,8 @@ export const post = async (req,res) => {
   console.log(req.body)
   res.json({message:'berhasil'})
 }
+
+export const file = async (req,res) => {
+  console.log(req.files)
+  res.send('berhsasil');
+}
