@@ -1,4 +1,4 @@
-
+import path from "path"
 export const test = async (req,res) =>{
   res.json({id:req.params.id})
   
@@ -16,5 +16,17 @@ export const post = async (req,res) => {
 
 export const file = async (req,res) => {
   console.log(req.files)
-  res.send('berhsasil');
+  if (!req.files || Object.keys(req.files).length == 0){
+    return  res.status(400).json({message:"No files"});
+  }
+  const file = req.files.file
+  const fileExt = path.extname(file.name) //getting file extension
+  const fileName = file.md5 + fileExt //use filename md5 from object
+  
+  file.mv(`./public/image/${fileName}`,async (err) => {
+    if (err) {
+      return err
+    }
+    await res.send("file berhasil diaplod");
+  })
 }
