@@ -18,7 +18,7 @@ export const getAllUser = async (req, res) => {
   res.json(users);
 }
 
-export const getUser =  async (req,res) => {
+export const getUserById =  async (req,res) => {
   const id = req.params.id
   const user = await User.findOne({
     where:{
@@ -26,4 +26,28 @@ export const getUser =  async (req,res) => {
     }
   })
   res.json(user);
+}
+
+export const addUser = async (req, res) => {
+  const user = await User.create(req.body)
+  res.send('posted')
+}
+
+export const deleteUser = async (req, res) => {
+  await User.destroy({
+    where:{
+      id:req.params.id
+    }
+  })
+  res.send("deleted")
+}
+
+export const updateUser = async (req, res) => {
+  console.log(req.body)
+  await User.update(req.body,{
+    where:{
+      id:req.params.id
+    }
+  })
+  res.send("Updated")
 }
