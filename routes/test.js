@@ -6,4 +6,5 @@ router.get('/test/:id',test)
 router.get('/bruh/:payload',bruh)
 router.post('/post',post)
 router.post('/file',file)
+
 export default router;
