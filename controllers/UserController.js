@@ -1,4 +1,4 @@
-import User from '../models/User.js'
+import {User,Role} from '../models/index.js'
 
 export const test = async (req,res) => {
   res.send('Test Controller');
@@ -14,7 +14,10 @@ export const getAllUser = async (req, res) => {
     console.log(req.query)
   }
 
-  const users = await User.findAll(paramObj);
+  const users = await User.findAll({
+    where:req.query,
+    include:Role
+  });
   res.json(users);
 }
 

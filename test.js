@@ -1,4 +1,4 @@
-import User from './models/User.js'
+import {User,Role} from './models/index.js'
 
 (async() => {
   // const Ainur = await User.create({
